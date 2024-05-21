@@ -26,6 +26,14 @@ document.addEventListener('keydown', (e) => {
    for(item in musics) {
     if(item ==  e.key) {
         let music = new Audio(`./sounds/${musics[item]}.mp3`);
+        drums.forEach((drum) => {
+          if(drum.classList[0] == e.key) {
+            drum.classList.add('scaled');
+            setTimeout(() => {
+                drum.classList.remove('scaled');
+            }, 100);
+          }
+        })
         music.play();
     }
    }
